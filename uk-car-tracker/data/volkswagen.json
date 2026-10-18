@@ -1,0 +1,100 @@
+{
+  "make": "Volkswagen",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "vw-golf-mk5-gti-ed30",
+      "make": "Volkswagen",
+      "model": "Golf Mk5",
+      "trim": "GTI Edition 30 (2.0 TFSI 230PS)",
+      "years": "2006-2008",
+      "engine": "2.0L BYD K04 Turbo (227 bhp)",
+      "stats": {
+        "uk_made_new": 2297,
+        "licensed_2026": 1290,
+        "sorn_2026": 465,
+        "exported_total": 185,
+        "avg_market_value_gbp": 11800
+      },
+      "colors": [
+        {
+          "name": "Tornado Red",
+          "hex": "#e84118",
+          "made_new": 680,
+          "licensed": 385,
+          "sorn": 140,
+          "exported": 55
+        },
+        {
+          "name": "Diamond Black Pearl",
+          "hex": "#1e272e",
+          "made_new": 790,
+          "licensed": 445,
+          "sorn": 160,
+          "exported": 60
+        },
+        {
+          "name": "Candy White",
+          "hex": "#f5f6fa",
+          "made_new": 490,
+          "licensed": 275,
+          "sorn": 95,
+          "exported": 45
+        },
+        {
+          "name": "Steel Grey",
+          "hex": "#718093",
+          "made_new": 337,
+          "licensed": 185,
+          "sorn": 70,
+          "exported": 25
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "Republic of Ireland",
+          "count": 115
+        },
+        {
+          "region": "Mainland Europe",
+          "count": 45
+        },
+        {
+          "region": "Australia & NZ",
+          "count": 25
+        }
+      ],
+      "history": [
+        {
+          "year": 2010,
+          "licensed": 2210,
+          "sorn": 35,
+          "exported": 15
+        },
+        {
+          "year": 2018,
+          "licensed": 1760,
+          "sorn": 240,
+          "exported": 105
+        },
+        {
+          "year": 2026,
+          "licensed": 1290,
+          "sorn": 465,
+          "exported": 185
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-10-05",
+          "platform": "AutoTrader UK",
+          "status": "LIVE",
+          "color": "Tornado Red",
+          "mileage": 64000,
+          "spec_notes": "3-Door, 6-speed Manual, Pescara alloys, plaque #0842",
+          "price_gbp": 12995
+        }
+      ]
+    }
+  ]
+}

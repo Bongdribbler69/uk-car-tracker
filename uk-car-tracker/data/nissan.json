@@ -1,0 +1,96 @@
+{
+  "make": "Nissan",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "nissan-skyline-r34-gtr-vspec",
+      "make": "Nissan",
+      "model": "Skyline (R34)",
+      "trim": "GT-R V-Spec (UK & Imports)",
+      "years": "1999-2002",
+      "engine": "2.6L RB26DETT Twin-Turbo AWD",
+      "stats": {
+        "uk_made_new": 580,
+        "licensed_2026": 215,
+        "sorn_2026": 140,
+        "exported_total": 195,
+        "avg_market_value_gbp": 168000
+      },
+      "colors": [
+        {
+          "name": "Bayside Blue (TV2)",
+          "hex": "#0057b8",
+          "made_new": 245,
+          "licensed": 92,
+          "sorn": 58,
+          "exported": 84
+        },
+        {
+          "name": "Midnight Purple II/III",
+          "hex": "#3b1e54",
+          "made_new": 68,
+          "licensed": 22,
+          "sorn": 19,
+          "exported": 25
+        },
+        {
+          "name": "Sonic Silver (KR4)",
+          "hex": "#b2bec3",
+          "made_new": 267,
+          "licensed": 101,
+          "sorn": 63,
+          "exported": 86
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "USA (25-Year Import Rule)",
+          "count": 135
+        },
+        {
+          "region": "Middle East (UAE)",
+          "count": 28
+        },
+        {
+          "region": "Australia",
+          "count": 20
+        },
+        {
+          "region": "Mainland Europe",
+          "count": 12
+        }
+      ],
+      "history": [
+        {
+          "year": 2010,
+          "licensed": 460,
+          "sorn": 85,
+          "exported": 15
+        },
+        {
+          "year": 2020,
+          "licensed": 290,
+          "sorn": 150,
+          "exported": 110
+        },
+        {
+          "year": 2026,
+          "licensed": 215,
+          "sorn": 140,
+          "exported": 195
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-07-30",
+          "platform": "PistonHeads",
+          "status": "LIVE",
+          "color": "Bayside Blue (TV2)",
+          "mileage": 41000,
+          "spec_notes": "1 of 80 Official UK Middlehurst cars",
+          "price_gbp": 184995
+        }
+      ]
+    }
+  ]
+}

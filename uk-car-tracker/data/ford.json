@@ -1,0 +1,295 @@
+{
+  "make": "Ford",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "ford-focus-mk2-rs",
+      "make": "Ford",
+      "model": "Focus Mk2",
+      "trim": "RS (2.5T 305PS)",
+      "years": "2009-2011",
+      "engine": "2.5L Duratec RS 5-Cyl Turbo (301 bhp)",
+      "stats": {
+        "uk_made_new": 4501,
+        "licensed_2026": 3180,
+        "sorn_2026": 815,
+        "exported_total": 295,
+        "avg_market_value_gbp": 36500
+      },
+      "colors": [
+        {
+          "name": "Ultimate Green",
+          "hex": "#4cd137",
+          "made_new": 1890,
+          "licensed": 1360,
+          "sorn": 350,
+          "exported": 120
+        },
+        {
+          "name": "Performance Blue",
+          "hex": "#1e3799",
+          "made_new": 1575,
+          "licensed": 1110,
+          "sorn": 280,
+          "exported": 105
+        },
+        {
+          "name": "Frozen White",
+          "hex": "#f5f6fa",
+          "made_new": 1036,
+          "licensed": 710,
+          "sorn": 185,
+          "exported": 70
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "Mainland Europe (Germany/France)",
+          "count": 125
+        },
+        {
+          "region": "Republic of Ireland",
+          "count": 85
+        },
+        {
+          "region": "Australia & New Zealand",
+          "count": 55
+        },
+        {
+          "region": "Hong Kong & Japan",
+          "count": 30
+        }
+      ],
+      "history": [
+        {
+          "year": 2011,
+          "licensed": 4450,
+          "sorn": 20,
+          "exported": 10
+        },
+        {
+          "year": 2016,
+          "licensed": 3980,
+          "sorn": 260,
+          "exported": 90
+        },
+        {
+          "year": 2021,
+          "licensed": 3490,
+          "sorn": 590,
+          "exported": 210
+        },
+        {
+          "year": 2026,
+          "licensed": 3180,
+          "sorn": 815,
+          "exported": 295
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-09-14",
+          "platform": "Collecting Cars",
+          "status": "SOLD",
+          "color": "Ultimate Green",
+          "mileage": 18400,
+          "spec_notes": "Lux Pack 2, unmodified, 1 owner",
+          "price_gbp": 41250
+        },
+        {
+          "date": "2026-10-10",
+          "platform": "AutoTrader UK",
+          "status": "LIVE",
+          "color": "Performance Blue",
+          "mileage": 54200,
+          "spec_notes": "Lux Pack 1, Mountune MP350",
+          "price_gbp": 33995
+        }
+      ]
+    },
+    {
+      "id": "ford-focus-mk2-st3",
+      "make": "Ford",
+      "model": "Focus Mk2",
+      "trim": "ST-3 (2.5T 225PS)",
+      "years": "2005-2010",
+      "engine": "2.5L Duratec ST 5-Cyl Turbo (222 bhp)",
+      "stats": {
+        "uk_made_new": 14200,
+        "licensed_2026": 6840,
+        "sorn_2026": 2410,
+        "exported_total": 490,
+        "avg_market_value_gbp": 8950
+      },
+      "colors": [
+        {
+          "name": "Electric Orange",
+          "hex": "#fa8231",
+          "made_new": 4100,
+          "licensed": 1980,
+          "sorn": 720,
+          "exported": 160
+        },
+        {
+          "name": "Performance Blue",
+          "hex": "#1e3799",
+          "made_new": 5300,
+          "licensed": 2590,
+          "sorn": 890,
+          "exported": 180
+        },
+        {
+          "name": "Panther Black",
+          "hex": "#2f3640",
+          "made_new": 4800,
+          "licensed": 2270,
+          "sorn": 800,
+          "exported": 150
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "Republic of Ireland",
+          "count": 260
+        },
+        {
+          "region": "Mainland Europe",
+          "count": 150
+        },
+        {
+          "region": "Cyprus & Malta (RHD)",
+          "count": 80
+        }
+      ],
+      "history": [
+        {
+          "year": 2010,
+          "licensed": 13600,
+          "sorn": 180,
+          "exported": 80
+        },
+        {
+          "year": 2018,
+          "licensed": 10200,
+          "sorn": 1150,
+          "exported": 290
+        },
+        {
+          "year": 2026,
+          "licensed": 6840,
+          "sorn": 2410,
+          "exported": 490
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-10-02",
+          "platform": "PistonHeads",
+          "status": "LIVE",
+          "color": "Electric Orange",
+          "mileage": 68000,
+          "spec_notes": "Recaro heated leather, facelift",
+          "price_gbp": 9495
+        }
+      ]
+    },
+    {
+      "id": "ford-escort-rs-cosworth",
+      "make": "Ford",
+      "model": "Escort Mk5",
+      "trim": "RS Cosworth Lux",
+      "years": "1992-1996",
+      "engine": "2.0L Cosworth YB 16v Turbo AWD (224 bhp)",
+      "stats": {
+        "uk_made_new": 2623,
+        "licensed_2026": 612,
+        "sorn_2026": 890,
+        "exported_total": 445,
+        "avg_market_value_gbp": 74500
+      },
+      "colors": [
+        {
+          "name": "Imperial Blue",
+          "hex": "#192a56",
+          "made_new": 780,
+          "licensed": 195,
+          "sorn": 270,
+          "exported": 135
+        },
+        {
+          "name": "Mallard Green",
+          "hex": "#218c74",
+          "made_new": 610,
+          "licensed": 140,
+          "sorn": 210,
+          "exported": 95
+        },
+        {
+          "name": "Diamond White",
+          "hex": "#f5f6fa",
+          "made_new": 690,
+          "licensed": 155,
+          "sorn": 235,
+          "exported": 120
+        },
+        {
+          "name": "Radiant Red",
+          "hex": "#eb2f06",
+          "made_new": 543,
+          "licensed": 122,
+          "sorn": 175,
+          "exported": 95
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "USA (25-Year Import Rule)",
+          "count": 165
+        },
+        {
+          "region": "Mainland Europe",
+          "count": 140
+        },
+        {
+          "region": "Australia & New Zealand",
+          "count": 90
+        },
+        {
+          "region": "Republic of Ireland",
+          "count": 50
+        }
+      ],
+      "history": [
+        {
+          "year": 2005,
+          "licensed": 1680,
+          "sorn": 310,
+          "exported": 95
+        },
+        {
+          "year": 2015,
+          "licensed": 820,
+          "sorn": 740,
+          "exported": 240
+        },
+        {
+          "year": 2026,
+          "licensed": 612,
+          "sorn": 890,
+          "exported": 445
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-08-19",
+          "platform": "Iconic Auctioneers",
+          "status": "SOLD",
+          "color": "Imperial Blue",
+          "mileage": 24100,
+          "spec_notes": "Big Turbo T34 Lux, Hex Leather",
+          "price_gbp": 86500
+        }
+      ]
+    }
+  ]
+}

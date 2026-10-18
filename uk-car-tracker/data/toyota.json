@@ -1,0 +1,92 @@
+{
+  "make": "Toyota",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "toyota-gr-yaris-circuit",
+      "make": "Toyota",
+      "model": "GR Yaris (XP210)",
+      "trim": "Circuit Pack (1.6T GR-FOUR)",
+      "years": "2020-2024",
+      "engine": "1.6L G16E-GTS 3-Cyl Turbo AWD (257 bhp)",
+      "stats": {
+        "uk_made_new": 4850,
+        "licensed_2026": 4120,
+        "sorn_2026": 380,
+        "exported_total": 215,
+        "avg_market_value_gbp": 29800
+      },
+      "colors": [
+        {
+          "name": "Pure White / Pearl White",
+          "hex": "#f5f6fa",
+          "made_new": 2100,
+          "licensed": 1790,
+          "sorn": 165,
+          "exported": 95
+        },
+        {
+          "name": "Scarlet Flare",
+          "hex": "#c0392b",
+          "made_new": 1450,
+          "licensed": 1230,
+          "sorn": 115,
+          "exported": 65
+        },
+        {
+          "name": "Precious Black",
+          "hex": "#1e272e",
+          "made_new": 1300,
+          "licensed": 1100,
+          "sorn": 100,
+          "exported": 55
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "Republic of Ireland",
+          "count": 120
+        },
+        {
+          "region": "Cyprus & Malta",
+          "count": 55
+        },
+        {
+          "region": "Mainland Europe",
+          "count": 40
+        }
+      ],
+      "history": [
+        {
+          "year": 2021,
+          "licensed": 3200,
+          "sorn": 40,
+          "exported": 15
+        },
+        {
+          "year": 2024,
+          "licensed": 4350,
+          "sorn": 240,
+          "exported": 130
+        },
+        {
+          "year": 2026,
+          "licensed": 4120,
+          "sorn": 380,
+          "exported": 215
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-10-12",
+          "platform": "AutoTrader UK",
+          "status": "LIVE",
+          "color": "Scarlet Flare",
+          "mileage": 14200,
+          "spec_notes": "Circuit Pack, BBS forged wheels, Torsen LSDs",
+          "price_gbp": 30495
+        }
+      ]
+    }
+  ]
+}

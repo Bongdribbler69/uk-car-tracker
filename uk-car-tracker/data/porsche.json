@@ -1,0 +1,92 @@
+{
+  "make": "Porsche",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "porsche-997-gt3-rs",
+      "make": "Porsche",
+      "model": "911 (997.1)",
+      "trim": "GT3 RS (3.6 Mezger)",
+      "years": "2006-2008",
+      "engine": "3.6L Mezger Flat-6 (415 bhp)",
+      "stats": {
+        "uk_made_new": 194,
+        "licensed_2026": 102,
+        "sorn_2026": 58,
+        "exported_total": 28,
+        "avg_market_value_gbp": 152000
+      },
+      "colors": [
+        {
+          "name": "RS Orange",
+          "hex": "#e67e22",
+          "made_new": 68,
+          "licensed": 36,
+          "sorn": 21,
+          "exported": 9
+        },
+        {
+          "name": "RS Green",
+          "hex": "#2ecc71",
+          "made_new": 45,
+          "licensed": 24,
+          "sorn": 14,
+          "exported": 6
+        },
+        {
+          "name": "Carrara White / Black",
+          "hex": "#ecf0f1",
+          "made_new": 81,
+          "licensed": 42,
+          "sorn": 23,
+          "exported": 13
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "Hong Kong & Singapore",
+          "count": 14
+        },
+        {
+          "region": "Australia & NZ",
+          "count": 10
+        },
+        {
+          "region": "Europe",
+          "count": 4
+        }
+      ],
+      "history": [
+        {
+          "year": 2010,
+          "licensed": 175,
+          "sorn": 12,
+          "exported": 5
+        },
+        {
+          "year": 2018,
+          "licensed": 120,
+          "sorn": 45,
+          "exported": 22
+        },
+        {
+          "year": 2026,
+          "licensed": 102,
+          "sorn": 58,
+          "exported": 28
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-09-18",
+          "platform": "PistonHeads",
+          "status": "SOLD",
+          "color": "RS Green",
+          "mileage": 21500,
+          "spec_notes": "Clubsport Pack, PCCB ceramic brakes",
+          "price_gbp": 164000
+        }
+      ]
+    }
+  ]
+}

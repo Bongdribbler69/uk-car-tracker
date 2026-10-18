@@ -1,0 +1,92 @@
+{
+  "make": "Honda",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "honda-integra-type-r-dc2",
+      "make": "Honda",
+      "model": "Integra (DC2)",
+      "trim": "Type R 1.8 VTEC (UK Spec)",
+      "years": "1998-2001",
+      "engine": "1.8L B18C6 DOHC VTEC (187 bhp)",
+      "stats": {
+        "uk_made_new": 1650,
+        "licensed_2026": 390,
+        "sorn_2026": 485,
+        "exported_total": 265,
+        "avg_market_value_gbp": 24500
+      },
+      "colors": [
+        {
+          "name": "Championship White (NH-0)",
+          "hex": "#f5f6fa",
+          "made_new": 1150,
+          "licensed": 275,
+          "sorn": 340,
+          "exported": 185
+        },
+        {
+          "name": "Milano Red (R-81)",
+          "hex": "#e84118",
+          "made_new": 280,
+          "licensed": 65,
+          "sorn": 80,
+          "exported": 45
+        },
+        {
+          "name": "Starlight Black (NH-592P)",
+          "hex": "#2f3640",
+          "made_new": 220,
+          "licensed": 50,
+          "sorn": 65,
+          "exported": 35
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "Republic of Ireland",
+          "count": 135
+        },
+        {
+          "region": "USA (25-Year Import Rule)",
+          "count": 85
+        },
+        {
+          "region": "Mainland Europe",
+          "count": 45
+        }
+      ],
+      "history": [
+        {
+          "year": 2006,
+          "licensed": 1390,
+          "sorn": 95,
+          "exported": 40
+        },
+        {
+          "year": 2016,
+          "licensed": 610,
+          "sorn": 410,
+          "exported": 155
+        },
+        {
+          "year": 2026,
+          "licensed": 390,
+          "sorn": 485,
+          "exported": 265
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-08-30",
+          "platform": "Collecting Cars",
+          "status": "SOLD",
+          "color": "Championship White (NH-0)",
+          "mileage": 62000,
+          "spec_notes": "Red Recaro seats, rust-free arches, OEM titanium knob",
+          "price_gbp": 26750
+        }
+      ]
+    }
+  ]
+}

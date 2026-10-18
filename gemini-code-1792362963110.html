@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UK Car Survival, Spec & Export Tracker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background-color: #0b0f19; color: #e2e8f0; font-family: Inter, system-ui, sans-serif; }
+    .card { background: #111827; border: 1px solid #1f2937; border-radius: 0.75rem; }
+  </style>
+</head>
+<body class="min-h-screen p-4 md:p-8">
+
+  <!-- Header -->
+  <header class="max-w-7xl mx-auto mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 border-b border-gray-800 pb-6">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="px-2.5 py-1 text-xs font-bold bg-blue-600 text-white rounded">UK DVLA + V5C EXPORT REGISTRY</span>
+        <span id="dataSourceBadge" class="px-2.5 py-1 text-xs font-medium bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 rounded">Modular JSON Architecture</span>
+      </div>
+      <h1 class="text-2xl md:text-4xl font-extrabold text-white mt-2">UK Vehicle Survival, Spec & Export Tracker</h1>
+      <p class="text-gray-400 text-sm mt-1">Tracks UK survival, SORN ratios, and permanent export trajectories down to trim and paint colour.</p>
+    </div>
+
+    <!-- Exporter Bar -->
+    <div class="card p-3 flex items-center gap-2">
+      <button onclick="downloadCurrentBrandJson()" class="bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-600 px-3 py-1.5 rounded text-xs font-semibold transition">
+        ⬇ Download Brand .JSON
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto space-y-6">
+
+    <!-- Cascading Make / Model / Trim / Colour Selector -->
+    <section class="card p-5">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">1. Make</label>
+          <select id="makeSelect" onchange="onMakeChange()" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2.5 text-white font-medium"></select>
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">2. Model Series</label>
+          <select id="modelSelect" onchange="onModelChange()" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2.5 text-white font-medium"></select>
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">3. DVLA Trim Level</label>
+          <select id="trimSelect" onchange="onTrimChange()" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2.5 text-white font-medium"></select>
+        </div>
+        <div>
+          <label class="block text-xs uppercase tracking-wider text-gray-400 mb-1">4. Factory Paint Colour</label>
+          <select id="colorSelect" onchange="renderDashboard()" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-3 py-2.5 text-white font-medium"></select>
+        </div>
+      </div>
+
+      <!-- Ad-Supported AI Generator Bar -->
+      <div class="mt-4 pt-4 border-t border-gray-800 flex flex-col sm:flex-row gap-2 items-center justify-between">
+        <div class="text-xs text-gray-400">
+          Can't find your car? Search any custom UK trim below to generate it instantly.
+        </div>
+        <div class="flex gap-2 w-full sm:w-auto">
+          <input id="customCarPrompt" type="text" placeholder="e.g. Ford Sierra RS500 Cosworth 1987" 
+            class="bg-gray-900 border border-gray-700 rounded px-3 py-1.5 text-xs text-white w-full sm:w-72" />
+          <button onclick="triggerAdSupportedGeminiLookup()" id="aiBtn" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-1.5 rounded text-xs font-semibold whitespace-nowrap shadow-lg">
+            + Generate Missing Car
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vehicle Banner -->
+    <section class="card p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <span id="carYears" class="text-xs font-bold px-2 py-0.5 rounded bg-gray-800 text-blue-400"></span>
+          <span id="carEngine" class="text-xs text-gray-400"></span>
+        </div>
+        <h2 id="carTitle" class="text-2xl font-bold text-white mt-1">Loading...</h2>
+      </div>
+      <div class="text-left md:text-right">
+        <div class="text-xs text-gray-400 uppercase">Avg UK Market Valuation</div>
+        <div id="carAvgValue" class="text-2xl font-extrabold text-emerald-400">£0</div>
+      </div>
+    </section>
+
+    <!-- 5 KPI Cards -->
+    <section class="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div class="card p-4">
+        <div class="text-xs text-gray-400 uppercase">UK Registered New</div>
+        <div id="kpiMade" class="text-2xl font-extrabold text-white mt-1">0</div>
+        <div id="kpiScopeNote" class="text-xs text-gray-500 mt-1">All UK Colours</div>
+      </div>
+      <div class="card p-4 border-l-4 border-l-emerald-500">
+        <div class="text-xs text-gray-400 uppercase">Licensed (On Road)</div>
+        <div id="kpiLicensed" class="text-2xl font-extrabold text-emerald-400 mt-1">0</div>
+        <div id="kpiLicensedPct" class="text-xs text-emerald-500/80 mt-1">0% survival</div>
+      </div>
+      <div class="card p-4 border-l-4 border-l-amber-500">
+        <div class="text-xs text-gray-400 uppercase">SORN (Off Road)</div>
+        <div id="kpiSorn" class="text-2xl font-extrabold text-amber-400 mt-1">0</div>
+        <div id="kpiSornPct" class="text-xs text-amber-500/80 mt-1">0% stored</div>
+      </div>
+      <div class="card p-4 border-l-4 border-l-purple-500">
+        <div class="text-xs text-gray-400 uppercase">Permanent Exports</div>
+        <div id="kpiExported" class="text-2xl font-extrabold text-purple-400 mt-1">0</div>
+        <div id="kpiExportedPct" class="text-xs text-purple-400/80 mt-1">V5C/4 overseas</div>
+      </div>
+      <div class="card p-4 border-l-4 border-l-rose-500">
+        <div class="text-xs text-gray-400 uppercase">Scrapped / Lost</div>
+        <div id="kpiScrapped" class="text-2xl font-extrabold text-rose-400 mt-1">0</div>
+        <div id="kpiScrappedPct" class="text-xs text-rose-400/80 mt-1">COD / Write-offs</div>
+      </div>
+    </section>
+
+    <!-- Charts & Breakdowns -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="card p-5 lg:col-span-2">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">DVLA Licensed vs SORN vs Cumulative Exports</h3>
+        <div class="h-64">
+          <canvas id="survivalChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card p-5 space-y-5">
+        <div>
+          <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3">V5C Export Destinations</h3>
+          <div id="exportList" class="space-y-2 text-xs"></div>
+        </div>
+        <div class="pt-4 border-t border-gray-800">
+          <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Factory Paint Breakdown</h3>
+          <div id="colorBreakdownList" class="space-y-2 text-xs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent UK Market Listings -->
+    <section class="card p-5">
+      <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Verified UK Sales History & Live Listings</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead>
+            <tr class="border-b border-gray-800 text-gray-400 uppercase">
+              <th class="py-2 pr-4">Date</th>
+              <th class="py-2 pr-4">Platform</th>
+              <th class="py-2 pr-4">Status</th>
+              <th class="py-2 pr-4">Colour</th>
+              <th class="py-2 pr-4">Mileage</th>
+              <th class="py-2 pr-4">Specification Notes</th>
+              <th class="py-2 text-right">Price</th>
+            </tr>
+          </thead>
+          <tbody id="salesTableBody" class="divide-y divide-gray-800/60"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- AD-SUPPORTED SPONSOR MODAL FOR GEMINI GENERATION -->
+  <div id="adResearchModal" class="fixed inset-0 bg-black/85 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+    <div class="bg-gray-900 border border-gray-700 rounded-2xl max-w-lg w-full p-6 shadow-2xl text-center space-y-4">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/40 border border-blue-700/50 text-blue-300 text-xs font-semibold">
+        <span class="animate-spin h-3 w-3 border-2 border-blue-400 border-t-transparent rounded-full"></span>
+        <span id="researchStepText">Compiling UK DVLA & V5C Export Records...</span>
+      </div>
+
+      <h3 id="modalCarTitle" class="text-xl font-extrabold text-white">Researching Custom Vehicle...</h3>
+      <p class="text-xs text-gray-400">
+        This car is being generated by AI, funded by our automotive sponsors below:
+      </p>
+
+      <!-- SPONSOR & AFFILIATE BANNER -->
+      <div class="bg-gray-950 border border-gray-800 rounded-xl p-4 my-3 text-left">
+        <div class="text-[10px] uppercase tracking-widest text-gray-500 mb-2 font-semibold">Sponsored Advertisement</div>
+        <div class="p-3 bg-gradient-to-r from-blue-950/60 to-emerald-950/60 border border-emerald-700/40 rounded-lg flex items-center justify-between gap-3">
+          <div>
+            <div class="text-xs font-bold text-emerald-300">Buying a Rare UK Car? Check Its History First</div>
+            <div class="text-[11px] text-gray-300 mt-0.5">Instant DVLA mileage, finance, stolen & write-off check.</div>
+          </div>
+          <a href="https://www.carvertical.com/gb" target="_blank" rel="noopener sponsored" 
+             class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-3 py-2 rounded-lg whitespace-nowrap">
+            Check Reg →
+          </a>
+        </div>
+      </div>
+
+      <!-- Progress Bar & Timer -->
+      <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+        <div id="adProgressBar" class="bg-blue-500 h-full transition-all duration-1000" style="width: 5%"></div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-gray-400 pt-1">
+        <span id="adTimerText">Sponsor view: 10s remaining...</span>
+        <button id="unlockResultBtn" onclick="closeAdModalAndShowCar()" disabled
+          class="bg-gray-700 text-gray-400 font-bold px-4 py-1.5 rounded-lg cursor-not-allowed transition">
+          Please Wait...
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // PASTE YOUR GEMINI API KEY HERE:
+    const HARDCODED_GEMINI_API_KEY = "AIzaSyYOUR_ACTUAL_API_KEY_HERE";
+
+    let currentBrandVehicles = [];
+    let currentCar = null;
+    let chartInstance = null;
+    let pendingGeneratedCar = null;
+
+    // 1. Initialize App with modular JSON fetching + Fallback
+    async function initApp() {
+      let makes = ["Ford", "BMW", "Volkswagen", "Audi", "Honda", "Subaru", "Nissan", "Toyota", "Porsche", "Vauxhall"];
+      try {
+        const res = await fetch('./data/makes.json');
+        if (res.ok) {
+          makes = await res.json();
+          document.getElementById('dataSourceBadge').textContent = 'Loaded ./data/makes.json';
+        }
+      } catch (e) {
+        document.getElementById('dataSourceBadge').textContent = 'Modular Static JSON Mode';
+      }
+
+      const makeSelect = document.getElementById('makeSelect');
+      makeSelect.innerHTML = makes.map(m => `<option value="${m}">${m}</option>`).join('');
+      await onMakeChange();
+    }
+
+    // 2. When Make changes, fetch ./data/{make}.json
+    async function onMakeChange() {
+      const make = document.getElementById('makeSelect').value;
+      const slug = make.toLowerCase().replace(/\s+/g, '-');
+
+      try {
+        const res = await fetch(`./data/${slug}.json`);
+        if (!res.ok) throw new Error('File not found');
+        const data = await res.json();
+        currentBrandVehicles = data.vehicles || [];
+        document.getElementById('dataSourceBadge').textContent = `Loaded ./data/${slug}.json`;
+      } catch (e) {
+        // Fallback default vehicles if modular JSON file hasn't been uploaded yet
+        currentBrandVehicles = [
+          {
+            "id": "ford-focus-mk2-rs", "make": "Ford", "model": "Focus Mk2", "trim": "RS (2.5T 305PS)", "years": "2009-2011",
+            "engine": "2.5L Duratec RS 5-Cyl Turbo (301 bhp)",
+            "stats": { "uk_made_new": 4501, "licensed_2026": 3180, "sorn_2026": 815, "exported_total": 295, "avg_market_value_gbp": 36500 },
+            "colors": [
+              { "name": "Ultimate Green", "hex": "#4cd137", "made_new": 1890, "licensed": 1360, "sorn": 350, "exported": 120 },
+              { "name": "Performance Blue", "hex": "#1e3799", "made_new": 1575, "licensed": 1110, "sorn": 280, "exported": 105 }
+            ],
+            "export_destinations": [{ "region": "Mainland Europe", "count": 125 }],
+            "history": [{ "year": 2011, "licensed": 4450, "sorn": 20, "exported": 10 }, { "year": 2026, "licensed": 3180, "sorn": 815, "exported": 295 }],
+            "sales_listings": [{ "date": "2026-09-14", "platform": "Collecting Cars", "status": "SOLD", "color": "Ultimate Green", "mileage": 18400, "spec_notes": "Lux Pack 2", "price_gbp": 41250 }]
+          }
+        ];
+        document.getElementById('dataSourceBadge').textContent = `Notice: ./data/${slug}.json missing (showing fallback)`;
+      }
+
+      const models = [...new Set(currentBrandVehicles.map(v => v.model))];
+      const modelSelect = document.getElementById('modelSelect');
+      modelSelect.innerHTML = models.map(m => `<option value="${m}">${m}</option>`).join('');
+      onModelChange();
+    }
+
+    // 3. Populate Trims for Selected Model
+    function onModelChange() {
+      const model = document.getElementById('modelSelect').value;
+      const trims = currentBrandVehicles.filter(v => v.model === model);
+      const trimSelect = document.getElementById('trimSelect');
+      trimSelect.innerHTML = trims.map(t => `<option value="${t.id}">${t.trim}</option>`).join('');
+      onTrimChange();
+    }
+
+    // 4. Populate Colours for Selected Trim
+    function onTrimChange() {
+      const trimId = document.getElementById('trimSelect').value;
+      currentCar = currentBrandVehicles.find(v => v.id === trimId) || null;
+      if (!currentCar) return;
+
+      const colorSelect = document.getElementById('colorSelect');
+      colorSelect.innerHTML = `<option value="ALL">All Factory Colours (${currentCar.stats.uk_made_new.toLocaleString()})</option>` +
+        currentCar.colors.map(c => `<option value="${c.name}">${c.name} (${c.made_new.toLocaleString()} made)</option>`).join('');
+
+      renderDashboard();
+    }
+
+    // 5. Render KPIs, Charts, Export Destinations & Sales Table
+    function renderDashboard() {
+      if (!currentCar) return;
+      const selectedColorName = document.getElementById('colorSelect').value;
+      const colorObj = currentCar.colors.find(c => c.name === selectedColorName);
+
+      const made = colorObj ? colorObj.made_new : currentCar.stats.uk_made_new;
+      const licensed = colorObj ? colorObj.licensed : currentCar.stats.licensed_2026;
+      const sorn = colorObj ? colorObj.sorn : currentCar.stats.sorn_2026;
+      const exported = colorObj ? colorObj.exported : currentCar.stats.exported_total;
+      const scrapped = Math.max(0, made - licensed - sorn - exported);
+
+      document.getElementById('carYears').textContent = currentCar.years;
+      document.getElementById('carEngine').textContent = currentCar.engine;
+      document.getElementById('carTitle').textContent = `${currentCar.make} ${currentCar.model} — ${currentCar.trim}`;
+      document.getElementById('carAvgValue').textContent = `£${currentCar.stats.avg_market_value_gbp.toLocaleString()}`;
+
+      document.getElementById('kpiMade').textContent = made.toLocaleString();
+      document.getElementById('kpiScopeNote').textContent = colorObj ? `Colour: ${colorObj.name}` : 'All UK Colours Combined';
+      document.getElementById('kpiLicensed').textContent = licensed.toLocaleString();
+      document.getElementById('kpiLicensedPct').textContent = `${((licensed / made) * 100).toFixed(1)}% on UK roads`;
+      document.getElementById('kpiSorn').textContent = sorn.toLocaleString();
+      document.getElementById('kpiSornPct').textContent = `${((sorn / made) * 100).toFixed(1)}% in storage`;
+      document.getElementById('kpiExported').textContent = exported.toLocaleString();
+      document.getElementById('kpiExportedPct').textContent = `${((exported / made) * 100).toFixed(1)}% exported`;
+      document.getElementById('kpiSc

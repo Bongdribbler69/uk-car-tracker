@@ -1,0 +1,76 @@
+{
+  "make": "Subaru",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "subaru-impreza-p1",
+      "make": "Subaru",
+      "model": "Impreza (GC8)",
+      "trim": "P1 (Prodrive One 2-Door)",
+      "years": "2000-2001",
+      "engine": "2.0L EJ207 Boxer Turbo AWD (276 bhp)",
+      "stats": {
+        "uk_made_new": 1000,
+        "licensed_2026": 345,
+        "sorn_2026": 395,
+        "exported_total": 140,
+        "avg_market_value_gbp": 56000
+      },
+      "colors": [
+        {
+          "name": "Sonic Blue (74F)",
+          "hex": "#1e3799",
+          "made_new": 1000,
+          "licensed": 345,
+          "sorn": 395,
+          "exported": 140
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "USA (25-Year Import Rule)",
+          "count": 55
+        },
+        {
+          "region": "Republic of Ireland",
+          "count": 48
+        },
+        {
+          "region": "Australia & NZ",
+          "count": 37
+        }
+      ],
+      "history": [
+        {
+          "year": 2006,
+          "licensed": 860,
+          "sorn": 60,
+          "exported": 20
+        },
+        {
+          "year": 2016,
+          "licensed": 440,
+          "sorn": 330,
+          "exported": 75
+        },
+        {
+          "year": 2026,
+          "licensed": 345,
+          "sorn": 395,
+          "exported": 140
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-09-09",
+          "platform": "Collecting Cars",
+          "status": "SOLD",
+          "color": "Sonic Blue (74F)",
+          "mileage": 39200,
+          "spec_notes": "Prodrive Alcon brake upgrade, Recaro seats",
+          "price_gbp": 58500
+        }
+      ]
+    }
+  ]
+}

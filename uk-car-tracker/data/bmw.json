@@ -1,0 +1,186 @@
+{
+  "make": "BMW",
+  "updated": "2026-10-18",
+  "vehicles": [
+    {
+      "id": "bmw-m3-e46-csl",
+      "make": "BMW",
+      "model": "3 Series (E46)",
+      "trim": "M3 CSL (3.2 SMG II)",
+      "years": "2003-2004",
+      "engine": "3.2L S54B32HP Inline-6 (355 bhp)",
+      "stats": {
+        "uk_made_new": 422,
+        "licensed_2026": 198,
+        "sorn_2026": 146,
+        "exported_total": 52,
+        "avg_market_value_gbp": 98500
+      },
+      "colors": [
+        {
+          "name": "Silver Grey Metallic",
+          "hex": "#8e9399",
+          "made_new": 311,
+          "licensed": 145,
+          "sorn": 108,
+          "exported": 38
+        },
+        {
+          "name": "Black Sapphire Metallic",
+          "hex": "#1c1e21",
+          "made_new": 111,
+          "licensed": 53,
+          "sorn": 38,
+          "exported": 14
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "Hong Kong & Singapore",
+          "count": 21
+        },
+        {
+          "region": "Australia & New Zealand",
+          "count": 16
+        },
+        {
+          "region": "Republic of Ireland",
+          "count": 9
+        },
+        {
+          "region": "Japan",
+          "count": 6
+        }
+      ],
+      "history": [
+        {
+          "year": 2006,
+          "licensed": 410,
+          "sorn": 8,
+          "exported": 3
+        },
+        {
+          "year": 2016,
+          "licensed": 255,
+          "sorn": 105,
+          "exported": 34
+        },
+        {
+          "year": 2026,
+          "licensed": 198,
+          "sorn": 146,
+          "exported": 52
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-08-22",
+          "platform": "Iconic Auctioneers",
+          "status": "SOLD",
+          "color": "Black Sapphire Metallic",
+          "mileage": 29100,
+          "spec_notes": "AP Racing brakes, OEM Cup wheels",
+          "price_gbp": 112500
+        }
+      ]
+    },
+    {
+      "id": "bmw-m5-e39",
+      "make": "BMW",
+      "model": "5 Series (E39)",
+      "trim": "M5 (4.9 V8 6-Speed)",
+      "years": "1998-2003",
+      "engine": "4.9L S62B50 V8 (394 bhp)",
+      "stats": {
+        "uk_made_new": 2595,
+        "licensed_2026": 790,
+        "sorn_2026": 685,
+        "exported_total": 310,
+        "avg_market_value_gbp": 34000
+      },
+      "colors": [
+        {
+          "name": "Carbon Black",
+          "hex": "#161b22",
+          "made_new": 980,
+          "licensed": 305,
+          "sorn": 260,
+          "exported": 115
+        },
+        {
+          "name": "Silverstone Metallic",
+          "hex": "#95a5a6",
+          "made_new": 720,
+          "licensed": 215,
+          "sorn": 190,
+          "exported": 85
+        },
+        {
+          "name": "Le Mans Blue",
+          "hex": "#1b4f72",
+          "made_new": 590,
+          "licensed": 185,
+          "sorn": 155,
+          "exported": 70
+        },
+        {
+          "name": "Imola Red",
+          "hex": "#c0392b",
+          "made_new": 305,
+          "licensed": 85,
+          "sorn": 80,
+          "exported": 40
+        }
+      ],
+      "export_destinations": [
+        {
+          "region": "USA",
+          "count": 95
+        },
+        {
+          "region": "Australia & NZ",
+          "count": 110
+        },
+        {
+          "region": "Ireland",
+          "count": 65
+        },
+        {
+          "region": "Mainland Europe",
+          "count": 40
+        }
+      ],
+      "history": [
+        {
+          "year": 2008,
+          "licensed": 2150,
+          "sorn": 120,
+          "exported": 45
+        },
+        {
+          "year": 2017,
+          "licensed": 1180,
+          "sorn": 490,
+          "exported": 190
+        },
+        {
+          "year": 2026,
+          "licensed": 790,
+          "sorn": 685,
+          "exported": 310
+        }
+      ],
+      "sales_listings": [
+        {
+          "date": "2026-09-28",
+          "platform": "Collecting Cars",
+          "status": "SOLD",
+          "color": "Le Mans Blue",
+          "mileage": 51000,
+          "spec_notes": "2002 Facelift, Heritage leather, rod bearings done",
+          "price_gbp": 39500
+        }
+      ]
+    }
+  ]
+}
